@@ -3,7 +3,7 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-    def mvn = tool 'Default Maven';
+    def mvn = tool 'Maven 3.27';
     withSonarQubeEnv() {
       sh "${mvn}/bin/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Menus-And-Panels -Dsonar.projectName='Menus And Panels'"
     }
